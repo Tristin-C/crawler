@@ -1,0 +1,14 @@
+# YAML
+crons:
+  - expr: '*/2 * * * *'
+    name: 'cron-1'
+    command:
+      type: http
+      method: GET
+      target: 'http://baidu.com'
+
+http:
+  addr: "127.0.0.1:8080"
+
+sqlite:
+  dsn: "/home/tenero/go-project/crawler/sqlite/crawler.db"
