@@ -1,0 +1,21 @@
+curl --location --request GET '127.0.0.1:8080/cron/list?page=1&pageSize=20'
+
+curl --location --request GET '127.0.0.1:8080/cron/info?id=87479017291777'
+
+curl --location --request POST '127.0.0.1:8080/cron/batch' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "list": [
+        {
+            "name": "test-00001",
+            "expr": "*/2 * * * *",
+            "command": {
+                "type": "http",
+                "method": "GET",
+                "target": "www.baidu.com"
+            }
+        }
+    ]
+}'
+
+curl --location --request GET '127.0.0.1:8080/cron_log/list?page=1&pageSize=20'
